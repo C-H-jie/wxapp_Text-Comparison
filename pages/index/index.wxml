@@ -1,0 +1,45 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <button  bindtap="upload_files_1" class="button_upload" type="primary" size="mini">
+    <text>点击上传文件</text>
+    </button>
+    <text id="text" class="files_name_text">
+      {{file_name1}}
+    </text>
+
+  </view>
+  <view class="usermotto2">
+    <button  bindtap="upload_files_2" class="button_upload" type="primary" size="mini">
+    <text>点击上传文件</text>
+    </button>
+    <text id="text" class="files_name_text">
+    {{file_name2}}
+    </text>
+
+    <button  bindtap="show_results" type="primary" size="mini" style="position: relative; left: 235rpx; top: -247rpx">
+    <text>查看对比结果</text>
+    </button>
+
+  </view>
+
+  
+
+</view>

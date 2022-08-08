@@ -1,0 +1,14 @@
+<!--pages/result.wxml-->
+
+<view style="height: 100vh;">
+<!-- <text>页面2</text> -->
+<scroll-view 	 style=" width: 50%; float: left;" >
+  <rich-text nodes="{{text1}}"></rich-text>
+</scroll-view>
+
+<scroll-view 	 style=" width: 50%; float:right ">
+  <rich-text nodes="{{text2}}"></rich-text>
+</scroll-view>
+
+
+</view>
